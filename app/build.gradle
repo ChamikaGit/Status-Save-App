@@ -5,6 +5,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
+//        applicationId "whasappstatus.whatsapp.status.save.statussaver"
         applicationId "com.cd.statussaver"
         minSdkVersion 21
         targetSdkVersion 29
