@@ -1,5 +1,6 @@
 package com.cd.statussaver.fragment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -8,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.cd.statussaver.R;
+import com.cd.statussaver.activity.FullHomeViewActivity;
+import com.cd.statussaver.activity.FullViewActivity;
 import com.cd.statussaver.adapter.WhatsappStatusAdapter;
 import com.cd.statussaver.databinding.FragmentWhatsappImageBinding;
+import com.cd.statussaver.interfaces.HomeFileListClickInterface;
 import com.cd.statussaver.model.WhatsappStatusModel;
 import java.io.File;
 import java.util.ArrayList;
@@ -17,7 +21,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import static androidx.databinding.DataBindingUtil.inflate;
 
-public class WhatsappImageFragment extends Fragment {
+public class WhatsappImageFragment extends Fragment implements HomeFileListClickInterface {
     FragmentWhatsappImageBinding binding;
 
     private File[] allfiles;
@@ -68,7 +72,7 @@ public class WhatsappImageFragment extends Fragment {
                 File file = allfiles[i];
                 if (Uri.fromFile(file).toString().endsWith(".png") || Uri.fromFile(file).toString().endsWith(".jpg")) {
                     whatsappStatusModel = new WhatsappStatusModel("WhatsStatus: " + (i + 1),
-                            Uri.fromFile(file),
+                            Uri.fromFile(file).toString(),
                             allfiles[i].getAbsolutePath(),
                             file.getName());
                     statusModelArrayList.add(whatsappStatusModel);
@@ -92,7 +96,7 @@ public class WhatsappImageFragment extends Fragment {
                 File file = allfilesBusiness[i];
                 if (Uri.fromFile(file).toString().endsWith(".png") || Uri.fromFile(file).toString().endsWith(".jpg")) {
                     whatsappStatusModel = new WhatsappStatusModel("WhatsStatusB: " + (i + 1),
-                            Uri.fromFile(file),
+                            Uri.fromFile(file).toString(),
                             allfilesBusiness[i].getAbsolutePath(),
                             file.getName());
                     statusModelArrayList.add(whatsappStatusModel);
@@ -106,8 +110,16 @@ public class WhatsappImageFragment extends Fragment {
         } else {
             binding.tvNoResult.setVisibility(View.VISIBLE);
         }
-        whatsappStatusAdapter = new WhatsappStatusAdapter(getActivity(), statusModelArrayList);
+        whatsappStatusAdapter = new WhatsappStatusAdapter(getActivity(), statusModelArrayList,this);
         binding.rvFileList.setAdapter(whatsappStatusAdapter);
 
+    }
+
+    @Override
+    public void getPosition(int position, WhatsappStatusModel file) {
+        Intent inNext = new Intent(getActivity(), FullHomeViewActivity.class);
+        inNext.putExtra("ImageDataFile", statusModelArrayList);
+        inNext.putExtra("Position", position);
+        getActivity().startActivity(inNext);
     }
 }

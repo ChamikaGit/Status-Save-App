@@ -2,33 +2,37 @@ package com.cd.statussaver.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.viewpager.widget.PagerAdapter;
+
 import com.bumptech.glide.Glide;
 import com.cd.statussaver.R;
+import com.cd.statussaver.activity.FullHomeViewActivity;
 import com.cd.statussaver.activity.FullViewActivity;
 import com.cd.statussaver.activity.VideoPlayerActivity;
+import com.cd.statussaver.model.WhatsappStatusModel;
 
 import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
+
 import static com.cd.statussaver.util.Utils.shareImage;
 import static com.cd.statussaver.util.Utils.shareVideo;
 
 
-public class ShowImagesAdapter extends PagerAdapter {
+public class ShowHomeImagesAdapter extends PagerAdapter {
     private Context context;
-    private ArrayList<File> imageList;
+    private ArrayList<WhatsappStatusModel> imageList;
     private LayoutInflater inflater;
-    FullViewActivity fullViewActivity;
+    FullHomeViewActivity fullViewActivity;
 
-    public ShowImagesAdapter(Context context, ArrayList<File> imageList, FullViewActivity fullViewActivity) {
+    public ShowHomeImagesAdapter(Context context, ArrayList<WhatsappStatusModel> imageList, FullHomeViewActivity fullViewActivity) {
         this.context = context;
         this.imageList = imageList;
         this.fullViewActivity=fullViewActivity;
@@ -60,8 +64,9 @@ public class ShowImagesAdapter extends PagerAdapter {
 
         Glide.with(context).load(imageList.get(position).getPath()).into(imageView);
         view.addView(imageLayout, 0);
-        String extension = imageList.get(position).getName().substring(imageList.get(position).getName().lastIndexOf("."));
-        if (extension.equals(".mp4")){
+//        String extension = imageList.get(position).getName().substring(imageList.get(position).getName().lastIndexOf("."));
+        boolean extension = imageList.get(position).getUriString().contains(".mp4");
+        if (extension){
             im_vpPlay.setVisibility(View.VISIBLE);
         }else {
             im_vpPlay.setVisibility(View.GONE);
@@ -76,27 +81,27 @@ public class ShowImagesAdapter extends PagerAdapter {
             context.startActivity(intent1);
         });
 
-        im_delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean b=imageList.get(position).delete();
-                if (b){
-                    fullViewActivity.deleteFileAA(position);
-                }
-            }
-        });
+//        im_delete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                boolean b=imageList.get(position).delete();
+//                if (b){
+//                    fullViewActivity.deleteFileAA(position);
+//                }
+//            }
+//        });
 
-        im_share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String extension = imageList.get(position).getName().substring(imageList.get(position).getName().lastIndexOf("."));
-                if (extension.equals(".mp4")){
-                    shareVideo(context,imageList.get(position).getPath());
-                }else {
-                    shareImage(context,imageList.get(position).getPath());
-                }
-            }
-        });
+//        im_share.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String extension = imageList.get(position).getName().substring(imageList.get(position).getName().lastIndexOf("."));
+//                if (extension.equals(".mp4")){
+//                    shareVideo(context,imageList.get(position).getPath());
+//                }else {
+//                    shareImage(context,imageList.get(position).getPath());
+//                }
+//            }
+//        });
 
 
         return imageLayout;

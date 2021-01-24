@@ -21,39 +21,20 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".activity.FullHomeViewActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.VideoPlayerActivity"
+            android:configChanges="orientation|screenSize|layoutDirection"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.AboutUsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.FacebookActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.TikTokActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.WhatsappActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.InstagramActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.FullViewActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.LikeeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.JoshActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.MitronActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.ChingariActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.SplashScreen"
@@ -95,25 +76,6 @@
         <activity
             android:name=".activity.WebviewAcitivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.TwitterActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.RoposoActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.ShareChatActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.SnackVideoActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.MXTakaTakActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.MojActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".activity.HomeActivity"
             android:theme="@style/AppTheme.NoActionBar" />

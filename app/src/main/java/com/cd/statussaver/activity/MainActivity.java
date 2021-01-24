@@ -87,10 +87,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (CopyKey.equals("android.intent.extra.TEXT")) {
                     CopyValue = activity.getIntent().getExtras().getString(CopyKey);
                     CopyValue = extractLinks(CopyValue);
-                    callText(value);
+//                    callText(value);
                 } else {
                     CopyValue = "";
-                    callText(value);
+//                    callText(value);
                 }
             }
         }
@@ -162,112 +162,97 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void callText(String CopiedText) {
-        try {
-            if (CopiedText.contains("likee")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(100);
-                } else {
-                    callLikeeActivity();
-                }
-            } else if (CopiedText.contains("instagram.com")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(101);
-                } else {
-                    callInstaActivity();
-                }
-            } else if (CopiedText.contains("facebook.com") || CopiedText.contains("fb")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(104);
-                } else {
-                    callFacebookActivity();
-                }
-            } else if (CopiedText.contains("tiktok.com")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(103);
-                } else {
-                    callTikTokActivity();
-                }
-            } else if (CopiedText.contains("twitter.com")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(106);
-                } else {
-                    callTwitterActivity();
-                }
-            } else if (CopiedText.contains("sharechat")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(107);
-                } else {
-                    callShareChatActivity();
-                }
-            } else if (CopiedText.contains("roposo")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(108);
-                } else {
-                    callRoposoActivity();
-                }
-            } else if (CopiedText.contains("snackvideo") || CopiedText.contains("sck.io")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(109);
-                } else {
-                    callSnackVideoActivity();
-                }
-            } else if (CopiedText.contains("josh")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(110);
-                } else {
-                    callJoshActivity();
-                }
-            } else if (CopiedText.contains("chingari")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(111);
-                } else {
-                    callChingariActivity();
-                }
-            } else if (CopiedText.contains("mitron")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(112);
-                } else {
-                    callMitronActivity();
-                }
-            } else if (CopiedText.contains("mxtakatak")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(113);
-                } else {
-                    callMXActivity();
-                }
-            }else if (CopiedText.contains("moj")) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(114);
-                } else {
-                    callMojActivity();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void callText(String CopiedText) {
+////        try {
+////            if (CopiedText.contains("likee")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(100);
+////                } else {
+////                    callLikeeActivity();
+////                }
+////            } else if (CopiedText.contains("instagram.com")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(101);
+////                } else {
+////                    callInstaActivity();
+////                }
+////            } else if (CopiedText.contains("facebook.com") || CopiedText.contains("fb")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(104);
+////                } else {
+////                    callFacebookActivity();
+////                }
+////            } else if (CopiedText.contains("tiktok.com")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(103);
+////                } else {
+////                    callTikTokActivity();
+////                }
+////            } else if (CopiedText.contains("twitter.com")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(106);
+////                } else {
+////                    callTwitterActivity();
+////                }
+////            } else if (CopiedText.contains("sharechat")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(107);
+////                } else {
+////                    callShareChatActivity();
+////                }
+////            } else if (CopiedText.contains("roposo")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(108);
+////                } else {
+////                    callRoposoActivity();
+////                }
+////            } else if (CopiedText.contains("snackvideo") || CopiedText.contains("sck.io")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(109);
+////                } else {
+////                    callSnackVideoActivity();
+////                }
+////            } else if (CopiedText.contains("josh")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(110);
+////                } else {
+////                    callJoshActivity();
+////                }
+////            } else if (CopiedText.contains("chingari")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(111);
+////                } else {
+////                    callChingariActivity();
+////                }
+////            } else if (CopiedText.contains("mitron")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(112);
+////                } else {
+////                    callMitronActivity();
+////                }
+////            } else if (CopiedText.contains("mxtakatak")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(113);
+////                } else {
+////                    callMXActivity();
+////                }
+////            }else if (CopiedText.contains("moj")) {
+////                if (Build.VERSION.SDK_INT >= 23) {
+////                    checkPermissions(114);
+////                } else {
+////                    callMojActivity();
+////                }
+////            }
+////        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void onClick(View v) {
         Intent i = null;
 
         switch (v.getId()) {
-            case R.id.rvLikee:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(100);
-                } else {
-                    callLikeeActivity();
-                }
-                break;
-            case R.id.rvInsta:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(101);
-                } else {
-                    callInstaActivity();
-                }
-                break;
-
             case R.id.rvWhatsApp:
                 if (Build.VERSION.SDK_INT >= 23) {
                     checkPermissions(102);
@@ -275,32 +260,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     callWhatsappActivity();
                 }
                 break;
-            case R.id.rvTikTok:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(103);
-                } else {
-                    callTikTokActivity();
-                }
-                break;
-            case R.id.rvFB:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(104);
-                } else {
-                    callFacebookActivity();
-                }
-                break;
             case R.id.rvGallery:
                 if (Build.VERSION.SDK_INT >= 23) {
                     checkPermissions(105);
                 } else {
                     callGalleryActivity();
-                }
-                break;
-            case R.id.rvTwitter:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(106);
-                } else {
-                    callTwitterActivity();
                 }
                 break;
             case R.id.rvAbout:
@@ -317,157 +281,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.rvMoreApp:
                 Utils.MoreApp(activity);
                 break;
-            case R.id.rvShareChat:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(107);
-                } else {
-                    callShareChatActivity();
-                }
-                break;
-            case R.id.rvRoposo:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(108);
-                } else {
-                    callRoposoActivity();
-                }
-                break;
-            case R.id.rvSnack:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(109);
-                } else {
-                    callSnackVideoActivity();
-                }
-                break;
-            case R.id.rvJosh:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(110);
-                } else {
-                    callJoshActivity();
-                }
-                break;
-            case R.id.rvChingari:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(111);
-                } else {
-                    callChingariActivity();
-                }
-                break;
-            case R.id.rvMitron:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(112);
-                } else {
-                    callMitronActivity();
-                }
-                break;
-            case R.id.rvMX:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(113);
-                } else {
-                    callMXActivity();
-                }
-                break;
-
-            case R.id.rvMoj:
-                if (Build.VERSION.SDK_INT >= 23) {
-                    checkPermissions(114);
-                } else {
-                    callMojActivity();
-                }
-                break;
         }
     }
-
-
-    public void callJoshActivity() {
-        Intent i = new Intent(activity, JoshActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callChingariActivity() {
-        Intent i = new Intent(activity, ChingariActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callMitronActivity() {
-        Intent i = new Intent(activity, MitronActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callMXActivity() {
-        Intent i = new Intent(activity, MXTakaTakActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callMojActivity() {
-        Intent i = new Intent(activity, MojActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-
-
-    public void callLikeeActivity() {
-        Intent i = new Intent(activity, LikeeActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callInstaActivity() {
-        Intent i = new Intent(activity, InstagramActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
 
     public void callWhatsappActivity() {
         Intent i = new Intent(activity, WhatsappActivity.class);
         startActivity(i);
     }
 
-    public void callTikTokActivity() {
-        Intent i = new Intent(activity, TikTokActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callFacebookActivity() {
-        Intent i = new Intent(activity, FacebookActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-
-    }
-
-    public void callTwitterActivity() {
-        Intent i = new Intent(activity, TwitterActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-
     public void callGalleryActivity() {
         Intent i = new Intent(activity, GalleryActivity.class);
-        startActivity(i);
-    }
-
-    public void callRoposoActivity() {
-        Intent i = new Intent(activity, RoposoActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callShareChatActivity() {
-        Intent i = new Intent(activity, ShareChatActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
-        startActivity(i);
-    }
-
-    public void callSnackVideoActivity() {
-        Intent i = new Intent(activity, SnackVideoActivity.class);
-        i.putExtra("CopyIntent", CopyValue);
         startActivity(i);
     }
 
@@ -520,36 +343,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String[listPermissionsNeeded.size()]), type);
             return false;
         } else {
-            if (type == 100) {
-                callLikeeActivity();
-            } else if (type == 101) {
-                callInstaActivity();
-            } else if (type == 102) {
+            if (type == 102) {
                 callWhatsappActivity();
-            } else if (type == 103) {
-                callTikTokActivity();
-            } else if (type == 104) {
-                callFacebookActivity();
-            } else if (type == 105) {
+            }else if (type == 105) {
                 callGalleryActivity();
-            } else if (type == 106) {
-                callTwitterActivity();
-            } else if (type == 107) {
-                callShareChatActivity();
-            } else if (type == 108) {
-                callRoposoActivity();
-            } else if (type == 109) {
-                callSnackVideoActivity();
-            } else if (type == 110) {
-                callJoshActivity();
-            } else if (type == 111) {
-                callChingariActivity();
-            } else if (type == 112) {
-                callMitronActivity();
-            }else if (type == 113) {
-                callMXActivity();
-            }else if (type == 114) {
-                callMojActivity();
             }
 
         }
@@ -558,33 +355,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        if (requestCode == 100) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callLikeeActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 101) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callInstaActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 102) {
+        if (requestCode == 102) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 callWhatsappActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 103) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callTikTokActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 104) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callFacebookActivity();
             } else {
             }
             return;
@@ -594,50 +367,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
             }
             return;
-        } else if (requestCode == 106) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callTwitterActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 107) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callShareChatActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 108) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callRoposoActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 109) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callSnackVideoActivity();
-            } else {
-            }
-            return;
-        } else if (requestCode == 110) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callJoshActivity();
-            }
-        } else if (requestCode == 111) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callChingariActivity();
-            }
-        } else if (requestCode == 112) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callMitronActivity();
-            }
-        }else if (requestCode == 113) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callMXActivity();
-            }
-        }else if (requestCode == 114) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                callMojActivity();
-            }
         }
 
     }

@@ -2,15 +2,19 @@ package com.cd.statussaver.model;
 
 import android.net.Uri;
 
+import com.google.gson.annotations.SerializedName;
 
-public class WhatsappStatusModel {
-    private String name;
-    private Uri uri;
-    private String path;
-    private String filename;
-    public WhatsappStatusModel(String name, Uri uri, String path, String filename ) {
+import java.io.Serializable;
+
+
+public class WhatsappStatusModel implements Serializable {
+    public String name;
+    public String uriString;
+    public String path;
+    public String filename;
+    public WhatsappStatusModel(String name, String uriString, String path, String filename ) {
         this.name = name;
-        this.uri = uri;
+        this.uriString = uriString;
         this.path = path;
         this.filename = filename;
     }
@@ -38,11 +42,20 @@ public class WhatsappStatusModel {
         this.name = name;
     }
 
-    public Uri getUri() {
-        return uri;
+//    public Uri getUri() {
+//        return uri;
+//    }
+//
+//    public void setUri(Uri uri) {
+//        this.uri = uri;
+//    }
+
+
+    public String getUriString() {
+        return uriString;
     }
 
-    public void setUri(Uri uri) {
-        this.uri = uri;
+    public void setUriString(String uriString) {
+        this.uriString = uriString;
     }
 }

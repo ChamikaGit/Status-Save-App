@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.cd.statussaver.R;
 import com.cd.statussaver.databinding.ItemsWhatsappViewBinding;
+import com.cd.statussaver.interfaces.FileListClickInterface;
+import com.cd.statussaver.interfaces.HomeFileListClickInterface;
 import com.cd.statussaver.model.WhatsappStatusModel;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
@@ -29,9 +31,13 @@ public class WhatsappStatusAdapter extends RecyclerView.Adapter<WhatsappStatusAd
     private ArrayList<WhatsappStatusModel> fileArrayList;
     private LayoutInflater layoutInflater;
     public String SaveFilePath = RootDirectoryWhatsappShow+ "/";
-    public WhatsappStatusAdapter(Context context, ArrayList<WhatsappStatusModel> files) {
+    private HomeFileListClickInterface fileListClickInterface;
+
+    public WhatsappStatusAdapter(Context context, ArrayList<WhatsappStatusModel> files, HomeFileListClickInterface fileListClickInterface) {
         this.context = context;
         this.fileArrayList = files;
+        this.fileListClickInterface=  fileListClickInterface;
+
     }
 
     @NonNull
@@ -46,7 +52,7 @@ public class WhatsappStatusAdapter extends RecyclerView.Adapter<WhatsappStatusAd
     @Override
     public void onBindViewHolder(@NonNull WhatsappStatusAdapter.ViewHolder viewHolder, int i) {
         WhatsappStatusModel fileItem = fileArrayList.get(i);
-        if (fileItem.getUri().toString().endsWith(".mp4")){
+        if (fileItem.getUriString().endsWith(".mp4")){
             viewHolder.binding.ivPlay.setVisibility(View.VISIBLE);
         }else {
             viewHolder.binding.ivPlay.setVisibility(View.GONE);
@@ -55,6 +61,12 @@ public class WhatsappStatusAdapter extends RecyclerView.Adapter<WhatsappStatusAd
                 .load(fileItem.getPath())
                 .into(viewHolder.binding.pcw);
 
+        viewHolder.binding.rlMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileListClickInterface.getPosition(i,fileItem);
+            }
+        });
 
         viewHolder.binding.tvDownload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +84,7 @@ public class WhatsappStatusAdapter extends RecyclerView.Adapter<WhatsappStatusAd
                 String fileNameChange=filename.substring(12);
                 File newFile = new File(SaveFilePath+fileNameChange);
                 String ContentType = "image/*";
-                if (fileItem.getUri().toString().endsWith(".mp4")){
+                if (fileItem.getUriString().endsWith(".mp4")){
                    ContentType = "video/*";
                 }else {
                     ContentType = "image/*";
@@ -93,6 +105,7 @@ public class WhatsappStatusAdapter extends RecyclerView.Adapter<WhatsappStatusAd
                 Toast.makeText(context, context.getResources().getString(R.string.saved_to) + SaveFilePath + fileNameChange, Toast.LENGTH_LONG).show();
             }
         });
+
     }
     @Override
     public int getItemCount() {

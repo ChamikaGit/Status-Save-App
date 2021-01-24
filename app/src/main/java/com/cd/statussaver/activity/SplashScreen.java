@@ -8,6 +8,8 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +33,8 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash_screen);
         context = activity = this;
         appUpdateManager = AppUpdateManagerFactory.create(context);
@@ -64,6 +68,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(SplashScreen.this, HomeActivity.class);
                 startActivity(i);
+                finish();
             }
         }, 1000);
 
