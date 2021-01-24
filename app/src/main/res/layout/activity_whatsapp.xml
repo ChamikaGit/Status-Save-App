@@ -35,6 +35,17 @@
                             android:padding="5dp"
                             android:layout_centerVertical="true"
                             android:src="@drawable/ic_back" />
+
+                        <TextView
+                            android:id="@+id/TVWATitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="Live WA Status"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                         <ImageView
                             android:id="@+id/imInfo"
                             android:layout_width="50dp"
@@ -110,6 +121,7 @@
                     android:layout_below="@+id/RLTopLayout"
                     android:elevation="3dp"
                     android:paddingStart="2dp"
+                    android:background="@drawable/rectangle_white"
                     android:paddingEnd="2dp">
 
                     <com.google.android.material.tabs.TabLayout
