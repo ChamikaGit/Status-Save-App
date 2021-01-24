@@ -88,6 +88,10 @@ dependencies {
 
     implementation 'com.facebook.android:audience-network-sdk:6.2.0'
     implementation 'com.google.android.exoplayer:exoplayer:2.7.2'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.7.0'
+    implementation 'com.hbb20:ccp:2.2.2'
+
+
 
 
 }
