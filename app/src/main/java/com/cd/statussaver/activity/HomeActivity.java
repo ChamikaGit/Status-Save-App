@@ -15,6 +15,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.cd.statussaver.R;
 import com.cd.statussaver.databinding.ActivityHomeBinding;
+import com.cd.statussaver.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     callGalleryActivity();
                 }
+                break;
+            case R.id.relLogoContainer:
+                Utils.OpenApp(activity,"com.whatsapp");
                 break;
         }
     }

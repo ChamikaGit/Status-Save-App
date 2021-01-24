@@ -38,7 +38,7 @@
                 android:padding="8dp"
                 android:layout_margin="0dp"
                 android:gravity="center"
-                android:background="#D3012507"
+                android:background="#C811B12C"
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:id="@+id/tv_download"
                 android:textColor="@color/white"
