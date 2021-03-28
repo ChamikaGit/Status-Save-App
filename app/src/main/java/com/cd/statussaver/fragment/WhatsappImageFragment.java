@@ -4,10 +4,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+
 import com.cd.statussaver.R;
 import com.cd.statussaver.activity.FullHomeViewActivity;
 import com.cd.statussaver.activity.FullViewActivity;
@@ -110,7 +116,12 @@ public class WhatsappImageFragment extends Fragment implements HomeFileListClick
         } else {
             binding.tvNoResult.setVisibility(View.VISIBLE);
         }
+        int resId = R.anim.layout_animation_slide_down;
         whatsappStatusAdapter = new WhatsappStatusAdapter(getActivity(), statusModelArrayList,this);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+        LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getActivity(), resId);
+        binding.rvFileList.setLayoutAnimation(animation);
+        binding.rvFileList.setLayoutManager(staggeredGridLayoutManager);
         binding.rvFileList.setAdapter(whatsappStatusAdapter);
 
     }

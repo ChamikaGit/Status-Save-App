@@ -20,7 +20,8 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:supportsRtl">
         <activity android:name=".activity.DirectCallActivity"></activity>
         <activity
             android:name=".activity.FullHomeViewActivity"

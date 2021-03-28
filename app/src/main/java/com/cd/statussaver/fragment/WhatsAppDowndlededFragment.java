@@ -7,8 +7,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import com.cd.statussaver.R;
 import com.cd.statussaver.activity.FullViewActivity;
 import com.cd.statussaver.activity.GalleryActivity;
@@ -75,7 +81,12 @@ public class WhatsAppDowndlededFragment extends Fragment implements FileListClic
             for (File file : files) {
                 fileArrayList.add(file);
             }
+            int resId = R.anim.layout_animation_slide_down;
             fileListAdapter = new FileListAdapter(activity, fileArrayList, WhatsAppDowndlededFragment.this);
+            StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+            LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(getActivity(), resId);
+            binding.rvFileList.setLayoutAnimation(animation);
+            binding.rvFileList.setLayoutManager(staggeredGridLayoutManager);
             binding.rvFileList.setAdapter(fileListAdapter);
         }
     }
